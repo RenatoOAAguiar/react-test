@@ -1,19 +1,25 @@
 import React, {Component} from "react";
-import {Container, Row, Col, CardGroup, Card, CardBlock, Button, Input, InputGroup, InputGroupAddon} from "reactstrap";
+import {Container, Row, Col, CardGroup, Card, CardBlock, Button, Input, InputGroup, InputGroupAddon, Alert} from "reactstrap";
 
+var cursor = {
+  cursor: 'pointer'
+};
 
 class Login extends Component {
   render() {
     return (
       <div className="app flex-row align-items-center">
         <Container>
+        <Alert color="success">
+          <strong>...</strong> Efetue o login para acessar!
+        </Alert>
           <Row className="justify-content-center">
             <Col md="8">
               <CardGroup className="mb-0">
                 <Card className="p-4">
                   <CardBlock className="card-body">
                     <h1>Login</h1>
-                    <p className="text-muted">Sign In to your account</p>
+                    <p className="text-muted">Logar</p>
                     <InputGroup className="mb-3">
                       <InputGroupAddon><i className="icon-user"></i></InputGroupAddon>
                       <Input type="text" placeholder="Username"/>
@@ -24,10 +30,10 @@ class Login extends Component {
                     </InputGroup>
                     <Row>
                       <Col xs="6">
-                        <Button color="primary" className="px-4">Login</Button>
+                        <Button color="primary" className="px-4" style={cursor}>Login</Button>
                       </Col>
                       <Col xs="6" className="text-right">
-                        <Button color="link" className="px-0">Forgot password?</Button>
+                        <Button color="link" className="px-0" style={cursor}>Esqueceu a senha?</Button>
                       </Col>
                     </Row>
                   </CardBlock>
@@ -35,10 +41,9 @@ class Login extends Component {
                 <Card className="text-white bg-primary py-5 d-md-down-none" style={{ width: 44 + '%' }}>
                   <CardBlock className="card-body text-center">
                     <div>
-                      <h2>Sign up</h2>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua.</p>
-                      <Button color="primary" className="mt-3" active>Register Now!</Button>
+                      <h2>Se registrar</h2>
+                      <p>Para se registrar é só acessar o link "Registrar agora", preencha todas as informações!</p>
+                      <Button color="primary" className="mt-3" href="/teste" style={cursor} active>Registrar agora!</Button>
                     </div>
                   </CardBlock>
                 </Card>

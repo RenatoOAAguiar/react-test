@@ -5,11 +5,14 @@ import { createStore, applyMiddleware } from 'redux';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import ReduxPromise from 'redux-promise';
 
-import App from './components/app';
+import Dashboard from './components/Dashboard/dashboard';
 import Login from './components/Login/login';
 import Teste from './components/teste/teste';
 import SideBar from './components/Sidebar/Sidebar';
-import '../node_modules/bootstrap/dist/css/bootstrap.css';
+import Footer from './components/Footer/Footer';
+import Navbar from './components/Navbar/Navbar';
+import 'bootstrap/dist/css/bootstrap.css';
+
 //import reducers from './reducers';
 
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
@@ -21,7 +24,9 @@ ReactDOM.render(
             <Route path="/login" name="Página de Login" component={Login} />
             <Route path="/teste" name="Teste" component={Teste} />
             <Route path="/sidebar" name="Teste" component={SideBar} />
-            <Route path="/" name="Dashboard" component={App} />
+            <Route path="/footer" name="Dashboard" component={Footer} />
+            <Route path="/navbar" name="Navbar" component={Navbar} />
+            <Route path="/" name="Dashboard" component={Dashboard} />
           </Switch>
       </div>
   </BrowserRouter>
