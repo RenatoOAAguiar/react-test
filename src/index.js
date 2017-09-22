@@ -30,4 +30,4 @@ ReactDOM.render(
           </Switch>
       </div>
   </BrowserRouter>
-  , document.querySelector('.container'));
+  , document.querySelector('.principal'));
