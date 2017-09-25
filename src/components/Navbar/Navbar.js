@@ -4,6 +4,9 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import BottomNavigationExampleSimple from '../Bottom/Bottom';
+import {BrowserRouter, Route, Switch, Redirect, Link} from 'react-router-dom';
+import Rasa from '../Rasa/Rasa';
+import Spacy from '../Spacy/Spacy';
 
 const style = {
     nav: {
@@ -12,11 +15,14 @@ const style = {
     btn: {
         "cursor": "pointer"
     },
-    navBar:{
+    navBar: {
         "marginTop": "60px !important"
     },
-    space:{
+    space: {
         'marginLeft': '20px'
+    },
+    corLink:{
+        color: 'black'
     }
 }
 
@@ -31,12 +37,14 @@ class Navbar extends Component {
         this.handleToggle = this.handleToggle.bind(this);
         this.preencher = this.preencher.bind(this);
     }
-    handleToggle (){
+    handleToggle() {
         console.log(this.state.open);
-        this.setState({open: !this.state.open})
+        this.setState({
+            open: !this.state.open
+        });
     };
 
-    preencher(){
+    preencher() {
         this.setState({dados: "asdfasdfasdfas"})
     };
 
@@ -47,22 +55,21 @@ class Navbar extends Component {
                     <AppBar
                         title="Dashboard"
                         iconClassNameRight="muidocs-icon-navigation-expand-more"
-                        onClick={this.handleToggle}
-                    > 
-                    
-                    </AppBar>
+                        onClick={this.handleToggle}></AppBar>
                     <Drawer open={this.state.open} style={style.navBar}>
-                        <MenuItem onClick={this.preencher}>Rasa</MenuItem>
-                        <MenuItem>spaCy</MenuItem>
+                        <MenuItem path="/rasa" onClick={this.preencher}><Link style={style.corLink} to="/rasa">Rasa</Link></MenuItem>
+                        <MenuItem path="/spacy"><Link style={style.corLink} to="/spacy">spaCy</Link></MenuItem>
                     </Drawer>
                     <div className="container" style={style.space}>
-                        <center>
-                            <h1>OK</h1>
-                            {this.state.dados}
-                        </center>
+                            <div>
+                                <Switch>
+                                    <Route path="/rasa" name="Página rasa" component={Rasa}/>
+                                    <Route path="/spacy" name="Página Spacy" component={Spacy}/>
+                                </Switch>
+                            </div>
                     </div>
                     <footer className="fixed-bottom">
-                        <BottomNavigationExampleSimple />
+                        <BottomNavigationExampleSimple/>
                     </footer>
                 </div>
             </MuiThemeProvider>

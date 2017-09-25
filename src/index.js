@@ -21,12 +21,12 @@ ReactDOM.render(
     <BrowserRouter>
       <div>
           <Switch>
-            <Route path="/login" name="Página de Login" component={Login} />
+            {/* <Route path="/login" name="Página de Login" component={Login} />
             <Route path="/teste" name="Teste" component={Teste} />
             <Route path="/sidebar" name="Teste" component={SideBar} />
             <Route path="/footer" name="Dashboard" component={Footer} />
-            <Route path="/navbar" name="Navbar" component={Navbar} />
-            <Route path="/" name="Dashboard" component={Dashboard} />
+            <Route path="/navbar" name="Navbar" component={Navbar} /> */}
+            <Route path="/" name="Navbar" component={Navbar} />
           </Switch>
       </div>
   </BrowserRouter>
